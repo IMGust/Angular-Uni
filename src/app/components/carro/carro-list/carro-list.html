@@ -1,0 +1,24 @@
+<h2>Lista de Carros</h2>
+<button routerLink="/carros/novo">Novo Carro</button>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nome</th>
+      <th>Classificação</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let c of carros">
+      <td>{{ c.id }}</td>
+      <td>{{ c.nome }}</td>
+      <td>{{ c.classificacao }}</td>
+      <td>
+        <button [routerLink]="['/carros/editar', c.id]">Editar</button>
+        <button (click)="deletar(c.id!)">Excluir</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
