@@ -1,6 +1,13 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
-import { App } from './app/app';
+import { provideRouter } from '@angular/router';
+import { App } from './app/app'; // ajuste conforme o local correto
+import { CarroListComponent } from './app/components/carro/carro-list/carro-list';
 
-bootstrapApplication(App, appConfig)
-  .catch((err) => console.error(err));
+
+const routes = [
+  { path: '', component: CarroListComponent },
+];
+
+bootstrapApplication(App, {
+  providers: [provideRouter(routes)]
+});
