@@ -3,7 +3,7 @@ import { CarroListComponent} from './components/carro/carro-list/carro-list';
 
 
 export const routes: Routes = [
-  { path: '', component: CarroListComponent } 
+  { path: 'carros', component: CarroListComponent, title: 'Lista de Carros' } 
   
 ];
 

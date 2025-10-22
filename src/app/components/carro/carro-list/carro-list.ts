@@ -1,15 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterModule } from "@angular/router";
-import { CommonModule } from "@angular/common";
+import { Carro } from '../../../models/carro.model';
+import { CarroService } from '../../../services/CarroService';
+import { NgFor } from '@angular/common';
 
-@Component({  
+@Component({
   selector: 'app-carro-list',
-  imports: [CommonModule, RouterModule],
+  standalone: true,
+  imports: [NgFor],
   templateUrl: './carro-list.html',
   styleUrl: './carro-list.css'
 })
-export class CarroListComponent{
+export class CarroListComponent implements OnInit {
+  
+  carros: Carro[] = []
 
+  constructor(private carroService: CarroService) {}
 
+  ngOnInit(): void {
+   this.carroService.getCarros().subscribe(data => this.carros = data);   
+  }
 }
-
